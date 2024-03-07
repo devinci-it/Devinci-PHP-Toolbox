@@ -1,0 +1,12 @@
+{
+    "name": "devinci/form-core",
+    "description": "Form Core Library",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Devinci\\FormCore\\FormBuilder\\": "FormBuilder/",
+            "Devinci\\FormCore\\FormManager\\": "FormManager/",
+            "Devinci\\FormCore\\FormProcessor\\": "FormProcessor/"
+        }
+    }
+}

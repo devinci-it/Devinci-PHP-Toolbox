@@ -1,0 +1,11 @@
+{
+    "require": {
+        "devinci/form-core": "dev-master"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./src/form-core"
+        }
+    ]
+}
