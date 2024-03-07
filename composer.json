@@ -1,6 +1,6 @@
 {
     "require": {
-        "devinci/form-core": "dev-master"
+        "devinci/form-core": "dev-main"
     },
     "repositories": [
         {

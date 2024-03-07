@@ -14,7 +14,7 @@ The `FormManager` class is the primary interface for users to interact with when
 Clone the repository or use your preferred method for including the module in your project.
 
 ```bash
-git clone https://github.com/your-username/devinci-form-module.git
+git clone https://github.com/devinci-it/devinci-form-module.git
 ```
 
 ### 2. Create a Form Using FormManager
