@@ -194,4 +194,49 @@ class ScriptHandler
             $logger->log('.htaccess created successfully in includes folder.');
         }
     }
+
+    public static function removeIncludesDirectory()
+    {
+        $includesDir = __DIR__ . '/../../includes';
+
+        if (is_dir($includesDir)) {
+            // Remove the includes directory and its contents
+            self::rrmdir($includesDir);
+        }
+    }
+
+    private static function rrmdir($dir)
+    {
+        if (is_dir($dir)) {
+            $objects = scandir($dir);
+
+            foreach ($objects as $object) {
+                if ($object != "." && $object != "..") {
+                    if (is_dir($dir . "/" . $object)) {
+                        self::rrmdir($dir . "/" . $object);
+                    } else {
+                        unlink($dir . "/" . $object);
+                    }
+                }
+            }
+
+            rmdir($dir);
+        }
+    }
+
+    public static function removeFilesAutoload()
+    {
+        $composerJsonPath = __DIR__ . '/../../composer.json';
+
+        // Read the composer.json content
+        $composerJsonContent = file_get_contents($composerJsonPath);
+
+        // Remove the autoload configuration for files
+        $autoloadFilesPattern = '/"autoload"\s*:\s*\{[^}]*"files"\s*:\s*\[[^\]]*\][^}]*\},/';
+        $composerJsonContent = preg_replace($autoloadFilesPattern, '', $composerJsonContent);
+
+        // Write back the modified content to composer.json
+        file_put_contents($composerJsonPath, $composerJsonContent);
+    }
+
 }

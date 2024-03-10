@@ -1,11 +1,16 @@
 {
     "name": "devinci/phpessentials",
     "scripts": {
+        "pre-update-cmd": [
+            "Devinci\\DatabaseCore\\ScriptHandler::removeFilesAutoload",
+            "Devinci\\DatabaseCore\\ScriptHandler::removeIncludesDirectory"
+        ],
         "post-autoload-dump": [
             "Devinci\\UICore\\ScriptHandler::copyCssFiles",
             "Devinci\\UICore\\ScriptHandler::copyIconFiles",
             "Devinci\\DevCore\\ScriptHandler::postAutoloadDump",
-            "Devinci\\Utilities\\ScriptHandler::setup"
+            "Devinci\\Utilities\\ScriptHandler::setup",
+            "Devinci\\DatabaseCore\\ScriptHandler::setup"
         ]
     },
     "extra": {
@@ -56,6 +61,9 @@
         }
     ],
     "autoload": {
+        "psr-4": {
+            "Devinci\\": "src"
+        },
         "files": [
             "includes/db.config.php"
         ]
