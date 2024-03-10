@@ -1,6 +1,6 @@
 <?php
 
-namespace Devinci\FormProcessor;
+namespace Devinci\FormCore\FormProcessor;
 /**
  * FormProcessor class for sanitizing, validating, and processing form data.
  *

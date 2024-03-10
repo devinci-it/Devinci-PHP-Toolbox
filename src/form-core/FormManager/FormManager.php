@@ -1,9 +1,9 @@
 <?php
 
-namespace Devinci\FormManager;
+namespace Devinci\FormCore\FormManager;
 
-use Devinci\FormBuilder\FormBuilder;
-use Devinci\FormProcessor\FormProcessor;
+use Devinci\FormCore\FormBuilder\FormBuilder;
+use Devinci\FormCore\FormProcessor\FormProcessor;
 
 /**
  * Class FormManager

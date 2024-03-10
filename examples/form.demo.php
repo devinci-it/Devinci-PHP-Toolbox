@@ -1,10 +1,12 @@
 <?php
 
 // Include the Composer autoload file
-require_once "vendor/autoload.php";
+require_once "../vendor/autoload.php";
 
 // Import the necessary class
-use Devinci\FormManager\FormManager;
+use Devinci\FormCore\FormManager\FormManager;
+use Devinci\UICore\Input\InputManager;
+
 
 // Define the form configuration
 $formConfig = [

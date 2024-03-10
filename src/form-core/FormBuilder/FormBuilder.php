@@ -1,6 +1,6 @@
 <?php
 
-namespace Devinci\FormBuilder;
+namespace Devinci\FormCore\FormBuilder;
 
 /**
  * FormBuilder class for creating HTML forms with ease and customization.
