@@ -22,4 +22,11 @@ Each component within the `ui-core` library is designed to be modular and custom
 #### Example Usage
 Refer to [ui-core/README.md](./src/ui-core/README.md) for detailed usage and examples.
 
+## Dev Core Library (dev-core)
+
+The Dev Core Library is a powerful utility for initializing and setting up PHP libraries within your Devinci framework project. It offers streamlined methods for creating directories, updating composer.json, and generating configuration files.
+
+#### Example Usage
+Refer to [dev-core/README.md](./src/dev-core/README.md) for detailed usage and examples.
+
 Feel free to explore each library's directory for specific usage details, examples, and customization options.

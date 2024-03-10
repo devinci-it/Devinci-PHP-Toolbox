@@ -1,0 +1,19 @@
+{
+    "name": "devinci/dev-core",
+    "description": "Dev Core Library",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Devinci\\DevCore\\ComposerUtils\\": "ComposerUtils",
+            "Devinci\\DevCore\\Config\\": "Config",
+            "Devinci\\DevCore\\": ""
+        }
+    },
+    "extra": {
+        "devinci-script-params": {
+            "vendorName": "devinci",
+            "baseLibraryPath": "__DIR__ . '/../../src'",
+            "composerJsonPath": "__DIR__ . '/../../composer.json'"
+        }
+    }
+}

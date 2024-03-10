@@ -2,12 +2,23 @@
     "scripts": {
         "post-autoload-dump": [
             "Devinci\\UICore\\ScriptHandler::copyCssFiles",
-            "Devinci\\UICore\\ScriptHandler::copyIconFiles"
+            "Devinci\\UICore\\ScriptHandler::copyIconFiles",
+            "Devinci\\DevCore\\ScriptHandler::postAutoloadDump",
+            "Devinci\\DbCore\\ScriptHandler::setup"
         ]
+    },
+    "extra": {
+        "devinci-script-params": {
+            "vendorName": "devinci",
+            "baseLibraryPath": "__DIR__ . '/../../src'",
+            "composerJsonPath": "__DIR__ . '/../../composer.json'"
+        }
     },
     "require": {
         "devinci/form-core": "dev-main",
-        "devinci/ui-core": "dev-main"
+        "devinci/ui-core": "dev-main",
+        "devinci/dev-core": "dev-main",
+        "devinci/db-core": "dev-main"
     },
     "repositories": [
         {
@@ -17,6 +28,14 @@
         {
             "type": "path",
             "url": "./src/ui-core"
+        },
+        {
+            "type": "path",
+            "url": "./src/dev-core"
+        },
+        {
+            "type": "path",
+            "url": "./src/db-core"
         }
     ]
 }
