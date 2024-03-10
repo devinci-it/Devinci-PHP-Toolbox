@@ -25,7 +25,7 @@ class DatabaseConnectionManager
             $databaseConfig = self::createConfig($config);
 
             // Instantiate a new Database object
-            self::$connections[$configHash] = new Database($databaseConfig, $logger);
+            self::$connections[$configHash] = new Database($logger);
             self::$connections[$configHash]->connect();
         }
 
