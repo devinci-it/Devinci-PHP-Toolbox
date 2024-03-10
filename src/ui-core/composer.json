@@ -1,0 +1,17 @@
+{
+  "name": "devinci/ui-core",
+  "description": "UI Core Library",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Devinci\\UICore\\ActionMenu\\": "ActionMenu/",
+      "Devinci\\UICore\\ImageInput\\": "ImageInput/",
+      "Devinci\\UICore\\Input\\": "Input/",
+      "Devinci\\UICore\\InputIcon\\": "InputIcon/",
+      "Devinci\\UICore\\SectionHeader\\": "SectionHeader/",
+      "Devinci\\UICore\\SideBar\\": "SideBar/",
+      "Devinci\\UICore\\StaticAssets\\": "static/",
+      "Devinci\\UICore\\": ""
+    }
+  }
+}

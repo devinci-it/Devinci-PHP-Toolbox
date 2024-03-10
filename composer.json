@@ -1,11 +1,16 @@
 {
     "require": {
-        "devinci/form-core": "dev-main"
+        "devinci/form-core": "dev-main",
+        "devinci/ui-core": "dev-main"
     },
     "repositories": [
         {
             "type": "path",
             "url": "./src/form-core"
+        },
+        {
+            "type": "path",
+            "url": "./src/ui-core"
         }
     ]
 }
