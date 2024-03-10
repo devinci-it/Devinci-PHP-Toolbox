@@ -1,0 +1,69 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "3a18c9e77db706cbfdbf682111d65403",
+    "packages": [
+        {
+            "name": "devinci/form-core",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./src/form-core",
+                "reference": "899abdefd4d1035b1933dc962803ee7bdb2a2487"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Devinci\\FormCore\\FormBuilder\\": "FormBuilder/",
+                    "Devinci\\FormCore\\FormManager\\": "FormManager/",
+                    "Devinci\\FormCore\\FormProcessor\\": "FormProcessor/"
+                }
+            },
+            "description": "Form Core Library",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "devinci/ui-core",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./src/ui-core",
+                "reference": "df1072a751e37bd7b57aa30f99d14eabffe14ec4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Devinci\\UICore\\ActionMenu\\": "ActionMenu/",
+                    "Devinci\\UICore\\ImageInput\\": "ImageInput/",
+                    "Devinci\\UICore\\Input\\": "Input/",
+                    "Devinci\\UICore\\InputIcon\\": "InputIcon/",
+                    "Devinci\\UICore\\SectionHeader\\": "SectionHeader/",
+                    "Devinci\\UICore\\SideBar\\": "SideBar/",
+                    "Devinci\\UICore\\StaticAssets\\": "static/",
+                    "Devinci\\UICore\\": ""
+                }
+            },
+            "description": "UI Core Library",
+            "transport-options": {
+                "relative": true
+            }
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "devinci/form-core": 20,
+        "devinci/ui-core": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}

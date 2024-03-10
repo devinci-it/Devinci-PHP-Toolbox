@@ -1,4 +1,10 @@
 {
+    "scripts": {
+        "post-autoload-dump": [
+            "Devinci\\UICore\\ScriptHandler::copyCssFiles",
+            "Devinci\\UICore\\ScriptHandler::copyIconFiles"
+        ]
+    },
     "require": {
         "devinci/form-core": "dev-main",
         "devinci/ui-core": "dev-main"

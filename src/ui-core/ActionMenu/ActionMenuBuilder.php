@@ -4,16 +4,26 @@ namespace Devinci\UICore\ActionMenu;
 
 class ActionMenuBuilder
 {
-private $actions;
+    private $actions;
+    private $iconPath; // New property to store the icon path
 
-public function __construct($actions)
-{
-$this->actions = $actions;
-}
+    public function __construct($actions)
+    {
+        $this->actions = $actions;
+        $this->iconPath = ''; // Initialize the icon path to an empty string
+    }
 
-public function build()
-{
-$actionMenu = new ActionMenu($this->actions);
-return $actionMenu;
-}
+    // Method to set the icon path
+    public function setIconPath($iconPath)
+    {
+        $this->iconPath = $iconPath;
+        return $this; // Allow chaining
+    }
+
+    public function build()
+    {
+        // Create an instance of ActionMenu with the actions and icon path
+        $actionMenu = new ActionMenu($this->actions, $this->iconPath);
+        return $actionMenu;
+    }
 }

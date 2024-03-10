@@ -1,13 +1,23 @@
 <?php
+
 namespace Devinci\UICore\ActionMenu;
 
 class ActionMenu
 {
     private $actions;
+    private $iconPath; // New property to store the icon path
 
-    public function __construct($actions)
+    public function __construct($actions, $iconPath = '')
     {
         $this->actions = $actions;
+        $this->iconPath = $iconPath; // Set the provided icon path
+    }
+
+    // Method to set the icon path
+    public function setIconPath($iconPath)
+    {
+        $this->iconPath = $iconPath;
+        return $this; // Allow chaining
     }
 
     public function render()
@@ -16,7 +26,7 @@ class ActionMenu
         foreach ($this->actions as $action) {
             $link = $action['path'] . '?action=' . urlencode($action['name']);
             echo '<a href="' . $link . '" class="btn action-btn">';
-            echo '<img src="' . $action['icon'] . '" alt="' . $action['name'] . '" class="menu-icon">';
+            echo '<img src="' . $this->iconPath . $action['icon'] . '" alt="' . $action['name'] . '" class="menu-icon">';
             echo $action['name'];
             echo '</a>';
         }
