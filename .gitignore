@@ -12,3 +12,4 @@ composer.phar
 /server
  src/dev-core/vendor/
 */vendor/*
+*.log
