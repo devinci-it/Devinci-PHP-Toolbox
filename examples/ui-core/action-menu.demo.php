@@ -9,10 +9,13 @@ UICore::includeCssFiles("../../public/");
 
 // Sample actions
 $actions = [
-    ['name' => 'Home', 'path' => '/home', 'icon' => 'browse.svg'],
-    ['name' => 'Profile', 'path' => '/profile', 'icon' => 'browse.svg'],
-    // Add more actions as needed
+    ['name' => 'Copy', 'path' => '/copy', 'icon' => 'create.svg'],
+    ['name' => 'Move', 'path' => '/move', 'icon' => 'up.svg'],
+    ['name' => 'Delete', 'path' => '/delete', 'icon' => 'del.svg'],
+    ['name' => 'Files', 'path' => '/files', 'icon' => 'browse.svg'],
+    ['name' => 'Settings', 'path' => '/settings', 'icon' => 'gear.svg'],
 ];
+
 
 // Assuming $iconsPath is the path where icons are copied
 $iconsPath = '../../public/icons/';
