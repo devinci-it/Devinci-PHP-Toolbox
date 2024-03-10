@@ -9,3 +9,6 @@ composer.phar
 /src/dev-core/config.ini
 /includes/
 /logs/
+/server
+ src/dev-core/vendor/
+*/vendor/*
