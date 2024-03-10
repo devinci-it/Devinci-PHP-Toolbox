@@ -1,0 +1,15 @@
+{
+    "name": "devinci/database-core",
+    "description": "Database-core Library",
+    "require": {
+        "devinci/utilities": "dev-main"
+    },
+    "autoload": {
+        "psr-4": {
+            "Devinci\\DatabaseCore\\": "",
+            "Devinci\\DatabaseCore\\Database\\": "Database",
+            "Devinci\\Utilities\\": "Utilities"
+
+        }
+    }
+}

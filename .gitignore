@@ -7,3 +7,5 @@ composer.phar
 /public/
 .idea/
 /src/dev-core/config.ini
+/includes/
+/logs/
