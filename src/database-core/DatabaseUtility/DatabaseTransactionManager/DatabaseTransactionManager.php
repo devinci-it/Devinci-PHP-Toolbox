@@ -1,6 +1,6 @@
 <?php
 
-namespace Devinci\DatabaseCore\DatabaseTransactionManager;
+namespace Devinci\DatabaseCore\DatabaseUtility\DatabaseTransactionManager;
 
 class DatabaseTransactionManager
 {

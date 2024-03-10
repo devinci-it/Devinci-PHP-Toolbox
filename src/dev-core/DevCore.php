@@ -8,6 +8,21 @@ class DevCore
 {
     private static $config;
 
+    private static $vendorName;
+    private static $baseLibraryPath;
+    private static $libraryName;
+    private static $libraryLocation;
+    private static $composerJsonPath;
+    private static $generatedModelsDirectory;
+    private static $generatedMigrationsDirectory;
+
+    public function __construct()
+    {
+        $this->loadConfig();
+        $this->defineConstants();
+        $this->setAttributes();
+    }
+
     public static function loadConfig()
     {
         // Read the config.ini file
@@ -19,41 +34,72 @@ class DevCore
         }
     }
 
+    private function setAttributes()
+    {
+        // Set attributes based on config values or use default values
+        self::$vendorName = self::$config['vendor_name'] ?? null;
+        self::$baseLibraryPath = self::$config['base_library_path'] ?? null;
+        self::$libraryName = self::$config['library_name'] ?? null;
+        self::$libraryLocation = self::$config['library_location'] ?? null;
+        self::$composerJsonPath = $this->getFullPath(self::$config['composer_json_path']) ?? null;
+        self::$generatedModelsDirectory = $this->getFullPath(self::$config['generated_models_directory']) ?? null;
+        self::$generatedMigrationsDirectory = $this->getFullPath(self::$config['generated_migrations_directory']) ?? null;
+    }
+
+    private function defineConstants()
+    {
+        // Define constants based on config values or use default values
+        define('GENERATED_MODELS_DIRECTORY', self::$config['generated_models_directory'] ?? __DIR__ . '/../../generated/models');
+        define('GENERATED_MIGRATIONS_DIRECTORY', self::$config['generated_migrations_directory'] ?? __DIR__ . '/../../generated/migrations');
+    }
+
     public static function getVendorName()
     {
-        return self::$config['vendor_name'];
+        return self::$vendorName;
     }
 
     public static function getBaseLibraryPath()
     {
-        return self::$config['base_library_path'];
+        return self::$baseLibraryPath;
     }
 
     public static function getLibraryName()
     {
-        return self::$config['library_name'];
+        return self::$libraryName;
     }
 
     public static function getLibraryLocation()
     {
-        return self::$config['library_location'];
+        return self::$libraryLocation;
     }
 
     public static function getComposerJsonPath()
     {
-        $composerJsonPath = self::$config['composer_json_path'];
+        return self::$composerJsonPath;
+    }
 
+    public static function getGeneratedModelsDirectory()
+    {
+        return self::$generatedModelsDirectory ?? __DIR__ . '/../../server/Models';
+    }
+
+
+    public static function getGeneratedMigrationsDirectory()
+    {
+        return self::$generatedMigrationsDirectory ?? __DIR__ . '/../../server/Migrations';
+    }
+
+    private function getFullPath($path)
+    {
         // Replace %DIR% with the actual __DIR__ value
-        $composerJsonPath = str_replace('%DIR%', __DIR__, $composerJsonPath);
-
-        return $composerJsonPath;
+        return $path ? str_replace('%DIR%', __DIR__, $path) : null;
     }
 
     public static function getComposerJsonContent()
     {
         $composerJsonPath = self::getComposerJsonPath();
 
-        if (file_exists($composerJsonPath)) {
+        if ($composerJsonPath && file_exists($composerJsonPath)) {
             $composerJsonContent = json_decode(file_get_contents($composerJsonPath), true);
             return $composerJsonContent;
         } else {
@@ -73,3 +119,5 @@ class DevCore
         ComposerUtils::initializeLibrary();
     }
 }
+
+

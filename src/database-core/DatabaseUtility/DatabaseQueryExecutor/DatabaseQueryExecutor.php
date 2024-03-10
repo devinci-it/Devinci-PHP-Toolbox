@@ -1,8 +1,8 @@
 <?php
 
-namespace Devinci\DatabaseCore\DatabaseQueryExecutor;
+namespace Devinci\DatabaseCore\DatabaseUtility\DatabaseQueryExecutor;
 
-use Devinci\DatabaseCore\DatabaseConnectionManager\DatabaseConnectionManager;
+use Devinci\DatabaseCore\DatabaseUtility\DatabaseConnectionManager\DatabaseConnectionManager;
 use Devinci\DatabaseCore\Database\Database;
 use Devinci\Utilities\Logger\Logger;
 

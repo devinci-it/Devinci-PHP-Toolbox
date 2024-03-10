@@ -1,11 +1,11 @@
 {
+    "name": "devinci/phpessentials",
     "scripts": {
         "post-autoload-dump": [
             "Devinci\\UICore\\ScriptHandler::copyCssFiles",
             "Devinci\\UICore\\ScriptHandler::copyIconFiles",
             "Devinci\\DevCore\\ScriptHandler::postAutoloadDump",
-            "Devinci\\Utilities\\ScriptHandler::setup",
-            "Devinci\\DatabaseCore\\ScriptHandler::setup"
+            "Devinci\\Utilities\\ScriptHandler::setup"
         ]
     },
     "extra": {
@@ -27,7 +27,11 @@
         "devinci/ui-core": "dev-main",
         "devinci/dev-core": "dev-main",
         "devinci/utilities": "dev-main",
-        "devinci/database-core": "dev-main"
+        "devinci/database-core": "dev-main",
+        "illuminate/database": "*",
+        "illuminate/console": "*",
+        "illuminate/filesystem": "*",
+        "illuminate/events": "*"
     },
     "repositories": [
         {

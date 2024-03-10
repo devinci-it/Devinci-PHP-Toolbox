@@ -3,26 +3,38 @@
 namespace Devinci\DatabaseCore\Database;
 
 use Devinci\Utilities\Logger\Logger;
+use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\Migrations\Migrator;
+use Illuminate\Contracts\Filesystem\Filesystem;
+use Illuminate\Database\Migrations\DatabaseMigrationRepository;
+use Illuminate\Database\Schema\MySqlBuilder;
 
 class Database
 {
-    private $connection;
     private $logger;
-    private $config;
+    private $capsule;
 
-    public function __construct(array $config = [], Logger $logger = null)
+    public function __construct(Logger $logger = null)
     {
-        // If constants are defined, use them as default values
-        $config += [
-            'host' => defined('HOST') ? HOST : '',
-            'username' => defined('USERNAME') ? USERNAME : '',
-            'password' => defined('PASSWORD') ? PASSWORD : 'P@',
-            'database' => defined('DATABASE') ? DATABASE : '',
-            'rootPassword' => defined('ROOTPASSWORD') ? ROOTPASSWORD : '',
-        ];
+        $this->logger = $logger??new Logger('db.log');
 
-        $this->config = $config;
-        $this->logger = $logger;
+        // Initialize Eloquent ORM
+        $capsule = new Capsule;
+        $capsule->addConnection([
+            'driver' => 'mysql',
+            'host' => defined('HOST') ? HOST : '',
+            'database' => defined('DATABASE') ? DATABASE : '',
+            'username' => defined('USERNAME') ? USERNAME : '',
+            'password' => defined('PASSWORD') ? PASSWORD : '',
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+        ]);
+        $capsule->setAsGlobal();
+        $capsule->bootEloquent();
+
+
+        $this->capsule = $capsule;
     }
 
     /**
@@ -32,33 +44,78 @@ class Database
      */
     public function connect()
     {
-        $host = $this->config['host'];
-        $username = $this->config['username'];
-        $password = $this->config['password'];
-        $databaseName = $this->config['database'];
+        try {
+            // Attempt to connect using Eloquent
+            $this->capsule->connection()->getPdo();
 
-        // Implement your database connection logic here
-        // Example using mysqli extension:
-        $this->connection = new \mysqli($host, $username, $password, $databaseName);
-
-        // Check the connection
-        if ($this->connection->connect_error) {
-            $this->logger->log('Failed to connect to the database: ' . $this->connection->connect_error, Logger::LOG_LEVEL_ERROR);
+            $this->logger->log('Successfully connected to the database using Eloquent.', Logger::LOG_LEVEL_INFO);
+            return true;
+        } catch (\Exception $e) {
+            $this->logger->log('Failed to connect to the database using Eloquent: ' . $e->getMessage(), Logger::LOG_LEVEL_ERROR);
             return false;
         }
-
-        $this->logger->log('Successfully connected to the database.', Logger::LOG_LEVEL_INFO);
-        return true;
     }
+    /**
+     * Run database migrations.
+     */
+    public function migrate()
+    {
+        try {
+            // Get the migrator instance
+            $migrator = $this->getMigrator();
+
+            // Run the migrations
+            $migrator->run(__DIR__.'/../../../server/Migrations');
+
+            $this->logger->log('Database migrations completed successfully.', Logger::LOG_LEVEL_INFO);
+        } catch (\Exception $e) {
+            $this->logger->log('An error occurred during database migrations: ' . $e->getMessage(), Logger::LOG_LEVEL_ERROR);
+        }
+    }
+
+    /**
+     * Get the migrator instance.
+     *
+     * @return Migrator
+     */
+    /**
+     * Get the migrator instance.
+     *
+     * @return Migrator
+     */
+    /**
+     * Get the migrator instance.
+     *
+     * @return Migrator
+     */
+    public function getMigrator(?Filesystem $filesystem = null, ?string $migrationPath = null)
+    {
+        $repository = new \Illuminate\Database\Migrations\DatabaseMigrationRepository(
+            $this->capsule->getDatabaseManager(),
+            'migrations'
+        );
+
+        if (!$filesystem) {
+            $filesystem = new \Illuminate\Filesystem\Filesystem();
+        }
+
+        $migrationPath = $migrationPath ?: (__DIR__.'/../../../server/Migrations');
+
+        return new Migrator(
+            $repository,
+            $this->capsule->getDatabaseManager(),
+            $filesystem,
+            new \Illuminate\Events\Dispatcher(),
+            new \Illuminate\Database\Schema\MySqlBuilder($this->capsule->connection())
+        );
+    }
+
 
     /**
      * Closes the database connection.
      */
     public function disconnect()
     {
-        if ($this->connection) {
-            $this->connection->close();
-            $this->logger->log('Database connection closed.', Logger::LOG_LEVEL_INFO);
-        }
+        // Eloquent doesn't require explicit disconnect
     }
 }

@@ -60,8 +60,10 @@ $librariesToSetup = [
 //        'classes' => ['Logger'],
 //    ],
     [
-        'name' => 'database-core',
-        'classes' => ['Database'],
+        'name' => 'dev-core',
+        'classes' => ['Database',
+            'EloquentUtils',
+        ],
     ],
 ];
 

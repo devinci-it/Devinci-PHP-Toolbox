@@ -1,11 +1,14 @@
 {
     "name": "devinci/dev-core",
     "description": "Dev Core Library",
-    "require": {},
+    "require": {
+        "illuminate/database": "^8.0"
+    },
     "autoload": {
         "psr-4": {
             "Devinci\\DevCore\\ComposerUtils\\": "ComposerUtils",
             "Devinci\\DevCore\\Config\\": "Config",
+            "Devinci\\DevCore\\EloquentUtils\\": "EloquentUtils",
             "Devinci\\DevCore\\": ""
         }
     },

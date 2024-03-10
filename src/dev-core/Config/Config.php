@@ -9,6 +9,8 @@ class Config
     public static $vendorName;
     public static $baseLibraryPath;
     public static $composerJsonPath;
+    public static $generatedModelsDirectory;
+    public static $generatedMigrationsDirectory;
 
     public static function load()
     {
@@ -19,6 +21,9 @@ class Config
         self::$vendorName = DevCore::getVendorName();
         self::$baseLibraryPath = DevCore::getBaseLibraryPath();
         self::$composerJsonPath = DevCore::getComposerJsonPath();
+        self::$generatedModelsDirectory = DevCore::getGeneratedModelsDirectory();
+        self::$generatedMigrationsDirectory = DevCore::getGeneratedMigrationsDirectory()
+        ;
     }
 }
 

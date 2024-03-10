@@ -2,6 +2,7 @@
 
 namespace Devinci\DatabaseCore;
 
+
 use Devinci\Utilities\Logger\Logger;
 use Devinci\DatabaseCore\Database\Database;
 
@@ -62,7 +63,7 @@ class ScriptHandler
         $setupScriptExecuted = self::executeDatabaseSetupScript($logger);
 
         // Attempt a connection using the information from db.config.php
-        $database = new Database($dbConfig, $logger);
+        $database = new Database($logger);
         $connected = $database->connect();
 
 

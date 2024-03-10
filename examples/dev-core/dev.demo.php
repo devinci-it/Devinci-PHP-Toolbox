@@ -1,35 +1,23 @@
 <?php
+include_once "../../vendor/autoload.php";
 
-/**
- * Example Script for Devinci Library Setup
- *
- * This script demonstrates how to use the DevCore library to set up a new library in your project.
- * It loads the configuration, specifies the library name and classes, and then calls the setupLibrary method
- * from DevCore to perform the necessary setup tasks such as creating directories, generating class files,
- * updating the composer.json file, and initializing the library.
- *
- * Usage:
- * 1. Include this script in your project, adjusting the path to the autoload.php file if necessary.
- * 2. Run the script to set up a new library based on the specified library name and classes.
- *
- * Note: Ensure that the DevCore library is properly installed and configured in your project.
- *
- * @file      ExampleSetupScript.php
- * @author    Your Name
- * @copyright Copyright (c) Your Company
- * @license   MIT License
- */
+use Devinci\DatabaseCore\Database\Database;
+use Devinci\Utilities\Logger\Logger;
+use Illuminate\Contracts\Filesystem;
+use Illuminate\Events\Dispatcher;
+use Illuminate\Database\Migrations\DatabaseMigrationRepository;
+use Illuminate\Database\Schema\MySqlBuilder;
 
-require_once "../../vendor/autoload.php";
+// Create a logger instance (replace with your actual logger implementation)
+$logger = new Logger("eloquent.log");
 
-use Devinci\DevCore\DevCore;
+// Create an instance of the Database class
+$database = new Database($logger);
 
-// Load configuration
-DevCore::loadConfig();
+// Connect to the database
+$database->connect();
 
-// Specify the library name and classes
-$libName = 'db-core';
-$classes = ['Database', 'DatabaseConfig'];
-
-// Call the setupLibrary method to perform library setup tasks
-DevCore::setupLibrary($libName, $classes);
+// Run database migrations
+$database->migrate();
+// Disconnect (optional)
+$database->disconnect();

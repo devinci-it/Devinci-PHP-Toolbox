@@ -10,5 +10,6 @@ class {{ modelName }} extends Model
     use HasFactory;
 
     protected $table = '{{ tableName }}';
+{{ columnDefinitions }}
     // Add your model logic here
 }

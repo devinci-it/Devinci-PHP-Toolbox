@@ -1,6 +1,6 @@
 <?php
 
-namespace Devinci\DatabaseCore\DatabaseSecurityManager;
+namespace Devinci\DatabaseCore\DatabaseUtility\DatabaseSecurityManager;
 
 class DatabaseSecurityManager
 {

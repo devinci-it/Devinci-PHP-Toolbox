@@ -1,6 +1,6 @@
 <?php
 
-namespace Devinci\DatabaseCore\DatabaseConnectionManager;
+namespace Devinci\DatabaseCore\DatabaseUtility\DatabaseConnectionManager;
 
 use Devinci\DatabaseCore\Database\Database;
 use Devinci\Utilities\Logger\Logger;
