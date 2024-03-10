@@ -4,21 +4,30 @@
             "Devinci\\UICore\\ScriptHandler::copyCssFiles",
             "Devinci\\UICore\\ScriptHandler::copyIconFiles",
             "Devinci\\DevCore\\ScriptHandler::postAutoloadDump",
-            "Devinci\\DbCore\\ScriptHandler::setup"
+            "Devinci\\Utilities\\ScriptHandler::setup",
+            "Devinci\\DatabaseCore\\ScriptHandler::setup"
         ]
     },
     "extra": {
         "devinci-script-params": {
             "vendorName": "devinci",
             "baseLibraryPath": "__DIR__ . '/../../src'",
-            "composerJsonPath": "__DIR__ . '/../../composer.json'"
+            "composerJsonPath": "__DIR__ . '/../../composer.json'",
+            "dbConfig": {
+                "host": "localhost",
+                "username": "root",
+                "password": "P@ssw0rd",
+                "database": "test",
+                "rootPassword": "P@ssw0rd"
+            }
         }
     },
     "require": {
         "devinci/form-core": "dev-main",
         "devinci/ui-core": "dev-main",
         "devinci/dev-core": "dev-main",
-        "devinci/db-core": "dev-main"
+        "devinci/utilities": "dev-main",
+        "devinci/database-core": "dev-main"
     },
     "repositories": [
         {
@@ -35,7 +44,16 @@
         },
         {
             "type": "path",
-            "url": "./src/db-core"
+            "url": "./src/utilities"
+        },
+        {
+            "type": "path",
+            "url": "./src/database-core"
         }
-    ]
+    ],
+    "autoload": {
+        "files": [
+            "includes/db.config.php"
+        ]
+    }
 }

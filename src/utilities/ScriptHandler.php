@@ -1,6 +1,8 @@
 <?php
 
+
 namespace Devinci\Utilities;
+include_once "vendor/autoload.php";
 
 use Devinci\Utilities\Logger\Logger;
 

@@ -4,8 +4,28 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "03eb8ba0a9376c5f177e41ec23581049",
+    "content-hash": "b3ba5507894e84e3e06e0a3535b0b01d",
     "packages": [
+        {
+            "name": "devinci/database-core",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./src/database-core",
+                "reference": "29e61525534eb21aa586d304abf9e1bfcbd6782e"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Devinci\\DatabaseCore\\": "",
+                    "Devinci\\DatabaseCore\\Database\\": "Database"
+                }
+            },
+            "description": "Database-core Library",
+            "transport-options": {
+                "relative": true
+            }
+        },
         {
             "name": "devinci/dev-core",
             "version": "dev-main",
@@ -80,6 +100,26 @@
             "transport-options": {
                 "relative": true
             }
+        },
+        {
+            "name": "devinci/utilities",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./src/utilities",
+                "reference": "b1a8e56912cb12bd00509131c82bb94eaf49b69c"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Devinci\\Utilities\\": "",
+                    "Devinci\\Utilities\\Logger\\": "Logger"
+                }
+            },
+            "description": "Utilities Library",
+            "transport-options": {
+                "relative": true
+            }
         }
     ],
     "packages-dev": [],
@@ -88,7 +128,9 @@
     "stability-flags": {
         "devinci/form-core": 20,
         "devinci/ui-core": 20,
-        "devinci/dev-core": 20
+        "devinci/dev-core": 20,
+        "devinci/utilities": 20,
+        "devinci/database-core": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

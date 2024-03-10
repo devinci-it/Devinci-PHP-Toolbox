@@ -1,7 +1,6 @@
 {
     "name": "devinci/utilities",
     "description": "Utilities Library",
-    "require": [],
     "autoload": {
         "psr-4": {
             "Devinci\\Utilities\\": "",
