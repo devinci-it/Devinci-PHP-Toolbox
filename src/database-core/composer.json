@@ -1,10 +1,21 @@
 {
     "name": "devinci/database-core",
     "description": "Database-core Library",
+    "require": [],
     "autoload": {
         "psr-4": {
             "Devinci\\DatabaseCore\\": "",
-            "Devinci\\DatabaseCore\\Database\\": "Database"
+            "Devinci\\DatabaseCore\\Database\\": "Database",
+            "Devinci\\DatabaseCore\\DatabaseConnectionManager\\": "DatabaseConnectionManager",
+            "Devinci\\DatabaseCore\\DatabaseSchemaManager\\": "DatabaseSchemaManager",
+            "Devinci\\DatabaseCore\\DatabaseQueryExecutor\\": "DatabaseQueryExecutor",
+            "Devinci\\DatabaseCore\\DatabaseBackupManager\\": "DatabaseBackupManager",
+            "Devinci\\DatabaseCore\\DatabaseTransactionManager\\": "DatabaseTransactionManager",
+            "Devinci\\DatabaseCore\\DatabaseMigrationManager\\": "DatabaseMigrationManager",
+            "Devinci\\DatabaseCore\\DatabaseDebugManager\\": "DatabaseDebugManager",
+            "Devinci\\DatabaseCore\\DatabaseConfigurationManager\\": "DatabaseConfigurationManager",
+            "Devinci\\DatabaseCore\\DatabaseSecurityManager\\": "DatabaseSecurityManager",
+            "Devinci\\DatabaseCore\\DatabaseInfoManager\\": "DatabaseInfoManager"
         }
     }
 }
