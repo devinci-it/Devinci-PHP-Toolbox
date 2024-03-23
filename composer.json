@@ -19,11 +19,11 @@
         ]
     },
     "require": {
-        "devinci/form-core": "dev-main",
-        "devinci/ui-core": "dev-main",
-        "devinci/dev-core": "dev-main",
-        "devinci/utilities": "dev-main",
-        "devinci/database-core": "dev-main",
+        "devinci/form-core": "*",
+        "devinci/ui-core": "*",
+        "devinci/dev-core": "*",
+        "devinci/utilities": "*",
+        "devinci/database-core": "*",
         "illuminate/database": "*",
         "illuminate/console": "*",
         "illuminate/filesystem": "*",
