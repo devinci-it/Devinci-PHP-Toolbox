@@ -1,7 +1,6 @@
 {
     "name": "devinci/form-core",
     "description": "Form Core Library",
-    "require": {},
     "autoload": {
         "psr-4": {
             "Devinci\\FormCore\\FormBuilder\\": "FormBuilder/",

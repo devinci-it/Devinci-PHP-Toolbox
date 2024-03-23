@@ -1,7 +1,7 @@
 {
     "name": "devinci-it/php-essentials",
     "description": "Devinci PHP Essentials: A collection of essential PHP libraries for simplifying common tasks and enhancing PHP development experience.",
-    "version": "v1.0.1-dev",
+    "version": "v1.0.2-dev",
     "license": "MIT",
     "authors": [
         {
